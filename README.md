@@ -3,9 +3,16 @@
 ## Descripción del Proyecto
 
 Una breve descripción de:
-¿Qué problema estamos tratando de resolver? Hemos querido abarcar el problema de la obtencion de datos en las primeras entrevistas de Cruz Roja.
-¿Cuál es la solución propuesta? Se ha diseñado una app movil, con la que podriamos grabar y transcribir las entrevistas, ademas de digitalizar los documentos. Tambien optimizar la extraccion de datos para optimizar los procesos de Cruz roja.  
+¿Qué problema estamos tratando de resolver? 
+
+Hemos querido abarcar el problema de la obtencion de datos en las primeras entrevistas de Cruz Roja.
+
+¿Cuál es la solución propuesta? 
+
+Se ha diseñado una app movil, con la que podriamos grabar y transcribir las entrevistas, ademas de digitalizar los documentos. Tambien optimizar la extraccion de datos para optimizar los procesos de Cruz roja.  
+
 Descripción de la Solución
+
 Hemos diseñado una app movil, para que se pueda ejecutar desde cualquier dispositivo. Siendo una interfaz lo mas basica posible, en la que grabamos la entrevista , capturamos las imagenes que necesitamos y enviamos toda esta informacion a un data lake(S3). Pudiendo extraer la informacion necesaria a traves de servicios de IA y ofreciendo informacion util a la persona de Cruz roja a traves de Modelos de LLM. Con la optencion de datos tambien podemos cuadrar los datos que tiene Cruz Roja de voluntarios para saber cuales son sus necesidades y que recursos humanos tiene.
 Realizando asi un "matching " entre recursos y necesidades a traves de los datos.Ademas como valor añadido, a traves de servicios como bedrock podemos enviar la informacion obtenida para ofrecer al entrevistador informacion util sobre el caso que esta tratando(informacion cultural, historias, algo que haga mas facil la situacion).Tambien hay que añadir que al tener a disposicion estos datos se pueden generar dashboards sobre la situacion de las personas en base de la informacion recibida.
 
