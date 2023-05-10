@@ -14,8 +14,7 @@ App-rakis no solo resalta por su singularidad, sino también por su gran potenci
 
 ## Diagrama de Arquitectura
 
-![aws(1)](https://github.com/GmausDev/hack4good/assets/50465630/a4123c16-152b-4924-b9fe-ff55cbf5e9d9)
-
+![aws(1)(1)](https://github.com/GmausDev/hack4good/assets/50465630/ede837f9-5038-45d2-999e-7e3195e80367)
 
 ## Descripción Técnica
 
