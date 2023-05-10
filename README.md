@@ -29,10 +29,8 @@ Una visión general de:
 Amazon S3, Cloudfront, Cognito IAM, EC2 con Graviton, lambda, Elastic, Dynamo, Comprehend, Bedrock, Transcribe.
 ## Demo Vídeo
 
+https://youtu.be/CYlPNVv009E
 
-
-
-https://github.com/GmausDev/hack4good/assets/50465630/bfe57633-a7f8-48ad-a459-4ed52ac8afa8
 
 
 
