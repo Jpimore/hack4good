@@ -44,7 +44,7 @@ No se ha considerado el uso de DDD o Hexagonal debido a limitaciones de tiempo.
   - Se recomienda utilizar patrones factory para la creación del cliente
   - Implementación de arquitectura CQRS para escalabilidad
 
-## Interacción entre capas
+### Interacción entre capas
 
 - Front-end interactúa con la API
   - Envío de datos (POST)
