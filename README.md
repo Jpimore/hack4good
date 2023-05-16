@@ -19,8 +19,55 @@ App-rakis no solo resalta por su singularidad, sino también por su gran potenci
 ## Descripción Técnica
 
 Una visión general de:
+**¿Qué tipo de arquitectura habéis planteado?** 
 
-**¿Qué tipo de arquitectura habéis planteado?** Se ha planteado una arquitectura con Microservicios y eventos, no se ha planteado DDD o Hexagonal por tiempo en cuanto al planteamiento se desarrollado en base a generar poco acoplamiento puediendo añadir mas herramientas o quitar funcionalidades, en la capa externa tenemos un front simple que captura datos usando IAM para autentificacion y autorizacion, pudiendo añadir distintos roles.Una vez capturamos los datos, usamos S3 con "Land-zone", para genera triggers en base a los eventos de insercion de objetos creando asi los eventos de transcripcion. Usando la misma metodologia gestionamos esos datos con comprehend y almacenamos los datos para su futura explotacion.En cuanto al codigo dispuesto no es ni mucho menos lo que se puede esperar en el back , deberiamos utilizar correctamente patrones factory para la creacion del cliente y un arquitectura del tipo CQRS para poder tener un sistema escalable. Entregamos una muestra de front y poco del back ya que hemos querido darle tiempo a la arquitectura, en resumen tendriamos un front que interactua con la API, para enviar los datos y para pedir informacion sobre lo datos pedidos(Basicamente un POST y un GET). Cuando insertamos los datos en S3 , tenemos un trigger del evento de insercion el cual lanza un lambda para generar un job de transcribe a traves del sdk de .net. Este job deja todo la informacion en otro S3 para que otro trigger usando el mismo metodo anterior envie los datos generados a Comprehend el cual extrae datos y analiza lo que necesitemos, mas adelante estos datos se dejan en S3 y son procesados por una lambda que los envia a una Base de datos para su explotacion ya sea Dynamo o usar un Elastic, tambien lo enviamos a una maquina EC2 con graviton donde se encuentra el modelo LLM, ya sea GPT-2 el cual disponemos u otro modelo mas adelante Bedrock, para pasar toda la informacion obtenida y dar informacion interesante al entrevistador, poemas, datos sobre la ciudad o situacion de la que huye el usuario para que entienda mas el contexto. La idea es que con todos estos datos de usuarios podamos generar reportes que puedan dar algo de informacion sobre las acciones de cruz roja y sus actividades. Tambien con esta informacion podriamos almacenar los datos de los voluntarios para asi tener un "matching" sobre necesidades y recurso humano.
+Se ha planteado una arquitectura basada en microservicios y eventos, con el objetivo de generar poco acoplamiento y permitir la adición o eliminación de herramientas y funcionalidades. 
+No se ha considerado el uso de DDD o Hexagonal debido a limitaciones de tiempo.
+
+### Capa externa
+
+- Front-end simple que captura datos
+  - Utiliza IAM para autenticación y autorización
+  - Permite añadir distintos roles
+
+### Captura y procesamiento de datos
+
+- Uso de S3 con "Land-zone"
+  - Genera triggers basados en eventos de inserción de objetos
+  - Crea eventos de transcripción
+- Gestión de datos con Comprehend
+  - Almacenamiento de datos para futura explotación
+
+### Código y patrones de diseño
+
+- Código back-end no óptimo (por ahora)
+  - Se recomienda utilizar patrones factory para la creación del cliente
+  - Implementación de arquitectura CQRS para escalabilidad
+
+## Interacción entre capas
+
+- Front-end interactúa con la API
+  - Envío de datos (POST)
+  - Solicitud de información (GET)
+
+### Procesamiento de datos en AWS
+
+1. Inserción de datos en S3
+   - Trigger de evento de inserción lanza una función Lambda
+   - Lambda genera un trabajo de transcripción con el SDK de .NET
+2. Transcripción almacenada en otro S3
+   - Trigger envía datos a Comprehend para extracción y análisis
+3. Datos almacenados en S3
+   - Procesados por Lambda y enviados a una base de datos (DynamoDB o Elastic)
+   - Enviados a una instancia EC2 con Graviton y modelo LLM (GPT-2 o Bedrock)
+
+El objetivo de la arquitectura es generar informes que proporcionen información sobre las acciones de Cruz Roja y sus actividades, y almacenar los datos de los voluntarios para hacer un "matching" sobre necesidades y recursos humanos.
+
+### Objetivos
+
+- Proporcionar información relevante al entrevistador (poemas, datos sobre la ciudad, contexto)
+- Generar reportes sobre acciones de Cruz Roja y sus actividades
+- Almacenar datos de voluntarios para realizar "matching" entre necesidades y recursos humanos
 
 
 **¿Qué tecnologías AWS se han utilizado?**
