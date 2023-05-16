@@ -61,10 +61,9 @@ No se ha considerado el uso de DDD o Hexagonal debido a limitaciones de tiempo.
    - Procesados por Lambda y enviados a una base de datos (DynamoDB o Elastic)
    - Enviados a una instancia EC2 con Graviton y modelo LLM (GPT-2 o Bedrock)
 
-El objetivo de la arquitectura es generar informes que proporcionen información sobre las acciones de Cruz Roja y sus actividades, y almacenar los datos de los voluntarios para hacer un "matching" sobre necesidades y recursos humanos.
-
 ### Objetivos
 
+- Automatizar captura de datos de la entrevista (reemplazar los formularios en papel)
 - Proporcionar información relevante al entrevistador (poemas, datos sobre la ciudad, contexto)
 - Generar reportes sobre acciones de Cruz Roja y sus actividades
 - Almacenar datos de voluntarios para realizar "matching" entre necesidades y recursos humanos
